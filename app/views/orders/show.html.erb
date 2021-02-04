@@ -1,3 +1,5 @@
+
+
 <section class="orders-show">
 
   <header class="page-header">
@@ -8,6 +10,18 @@
     <h4>Thank you for your order!</h4>
   </div>
 
+  <h3>Below are the details of your order, <%= @order.email%></h3>
+  <div>
+    <% @order.line_items.each do |item| %>
+      <%= render 'lineItem', product: item.product %>
+    <% end %>
+  </div>
+ 
+  <h3 style="margin: 30px 0 50px 0; color: red;">Total: <%= number_to_currency(@order.total_cents * 0.01) %></h3>
+  
+
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
 </section>
+
+
