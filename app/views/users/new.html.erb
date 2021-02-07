@@ -1,10 +1,18 @@
-<h1>Signup!</h1>
+<h1 style="margin: 100px 0;">Signup!</h1>
 
 <%= form_for :user, url: '/users' do |f| %>
 
-  Email: <%= f.text_field :email %>
-  Password: <%= f.password_field :password %>
-  Password Confirmation: <%= f.password_field :password_confirmation %>
-  <%= f.submit "Submit" %>
+  <% if flash[:error] %>
+  <p class="alert alert-danger" style="font-size: 20px;"><%= flash[:error] %></p>
+  <% end %>
+  <p style="font-size: 20px; margin: 20px 0;">First Name: <%= f.text_field :first_name %>
+  Last Name: <%= f.text_field :last_name %></p>
+  <p style="font-size: 20px; margin: 20px 0;">Email: <%= f.text_field :email %></p>
+  <p style="font-size: 20px; margin: 20px 0;">Password: <%= f.password_field :password %></p>
+  <p style="font-size: 20px; margin: 20px 0;">Password Confirmation: <%= f.password_field :password_confirmation %></p>
+  <div style="font-size: 20px; margin: 50px 0; color: #3377ff;">
+    <%= f.submit "Submit" %>
+  </div>
+ 
 
 <% end %>

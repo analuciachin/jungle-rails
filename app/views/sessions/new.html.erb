@@ -1,9 +1,15 @@
-<h1>Login</h1>
+<h1 style="margin: 100px 0;">Login</h1>
 
 <%= form_tag '/login' do %>
 
-  Email: <%= text_field_tag :email %>
-  Password: <%= password_field_tag :password %>
-  <%= submit_tag "Submit" %>
+  <% if flash[:error] %>
+  <p class="alert alert-danger" style="font-size: 20px;"><%= flash[:error] %></p>
+  <% end %>
+  <p style="font-size: 20px; margin: 20px 0;">Email: <%= text_field_tag :email %></p>
+  <p style="font-size: 20px; margin: 20px 0;">Password: <%= password_field_tag :password %></p>
+  <div style="font-size: 20px; margin: 40px 0; color: #3377ff;">
+    <%= submit_tag "Submit" %>
+  </div>
+
 
 <% end %>

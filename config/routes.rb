@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   #root to: 'gif#cool'
   root to: 'products#index'
+  #root to: 'users#new'
   get '/about' => 'about#index'
 
   # These routes will be for signup. The first renders a form in the browse, the second will 
