@@ -5,6 +5,20 @@
   <% if flash[:error] %>
   <p class="alert alert-danger" style="font-size: 20px;"><%= flash[:error] %></p>
   <% end %>
+
+  <% if @user && @user.errors.any? %>
+    <div class="alert alert-danger">
+      <strong>The following errors prevented saving:</strong>
+      <ul>
+        <% @user.errors.full_messages.each do |error| %>
+          <% puts @user.errors.full_messages %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
   <p style="font-size: 20px; margin: 20px 0;">First Name: <%= f.text_field :first_name %>
   Last Name: <%= f.text_field :last_name %></p>
   <p style="font-size: 20px; margin: 20px 0;">Email: <%= f.text_field :email %></p>
